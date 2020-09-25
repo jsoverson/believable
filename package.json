@@ -22,7 +22,13 @@
   "eslintConfig": {
     "extends": "./etc/.eslintrc.json"
   },
-  "keywords": [],
+  "keywords": [
+    "generate",
+    "fake",
+    "believable",
+    "fake data",
+    "data"
+  ],
   "author": "Jarrod Overson <jsoverson@gmail.com>",
   "license": "ISC",
   "devDependencies": {
