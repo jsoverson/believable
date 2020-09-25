@@ -1,61 +1,57 @@
-# Typescript boilerplate
+# Believable
 
-This is a boilerplate typescript project that incorporates fixes and best practices I come across as I build new projects.
+Generate believable, reproducible data like usernames, full names, emails, and passwords.
 
-If you extend this via a fork or otherwise, please let me know so I can check out your changes!
+## Why?
 
-## Who is this for?
+For testing and anywhere you might want to input dummy data.
 
-Anyone who uses TypeScript with Visual Studio Code and writes tests with Mocha.
+## Installation
 
-## Features
+```shell
+$ npm install believable
+```
 
-- Build and watch with tolerable TS presets.
-- Testing with mocha & chai.
-- @types definitions for mocha, chai, node, and other dependencies included.
-- Local HTTP test server preconfigured in tests.
-- Visual Studio Code project settigns preconfigured for
-  - Test Explorer UI recognizing Typescript tests
-  - Debugging Typescript tests within the IDE
-- Adds `__projectroot` as an alternative to `__dirname` to avoid lookup problems from compiled files.
-- Configuration and rc files:
-  - One configuration location for mocha, prettier, eslint & typescript so CLI programs and IDEs/extensions reuse configuration.
-  - Config files whose path can be configured from a central location have been moved to `etc/`
-  - Minimal .gitignore
+# Data sources
 
-## Core npm scripts
+- [Wordlist](http://www.sil.org/linguistics/wordlists/english/) [gist mirror](https://gist.github.com/trsqxyz/6bba8c3d715583acc0b5)
+- [Passwords](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10k-most-common.txt)
+- [Email domains](https://github.com/mailcheck/mailcheck/wiki/List-of-Popular-Domains)
+- Star Wars names derived from [starwars-names](https://github.com/kentcdodds/starwars-names)
+- Names come from 1990 US census data collected here: [treyhunner/name](https://github.com/treyhunner/names)
 
-- `build`: build typescript
-- `compile`: clean & build
-- `clean`: remove build folder
-- `prepublishOnly`: compile
-- `format`: format source files inline with prettier
-- `watch`: clean && continuously build files on change
-- `lint`: lint src && test
-- `test:unit`: mocha tests
-- `test`: lint && test:unit
+## Usage
 
-## Visual Studio Code extensions
+```js
+const { Believable } = require('believable');
+const believable = new Believable(seed);
 
-### Testing and debugging
+console.log(believable.fullName());
+console.log(believable.firstName());
+console.log(believable.email());
+```
 
-Debugging within Visual Studio Code requires
+## API Methods
 
-- [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer)
-- [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)
+- `believable.fullName()`: Shanell Nisbet
+- `believable.firstName()`: Ellie
+- `believable.lastName()`: Coleman
+- `believable.character()`: d
+- `believable.separator()`: .
+- `believable.starWarsName()`: Biggs Solo
+- `believable.username()`: shellieWacker68
+- `believable.password()`: helena99
+- `believable.birthYear()`: 1957
+- `believable.birthYearShort()`: 44
+- `believable.birthDate()`: Wed Oct 01 1975 17:21:31 GMT-0400 (Eastern Daylight Time)
+- `believable.hostname()`: ntlworld.com
+- `believable.randomPassword()`: t?TdQm8QtVW
+- `believable.passphrase()`: octal.hirable.zebroid
+- `believable.commonPassword()`: 1664
+- `believable.credentials()`: t.mccrady@hush.com:cloud9
+- `believable.word()`: grammar
+- `believable.email()`: robbinmedved@hotmail.es
 
-`.vscode/settings.json` is set up to parse Typescript files and to wire Mocha Test Explorer to the appropriate launch configuration in `.vscode/launch.json`. This wiring depends on the name of the launch configuration, do not change!
+## Contributions
 
-### Recommended plugins
-
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-The ESLint plugin is preconfigured for typescript in `.vscode/settings.json`.
-
-### Additional Configuration
-
-Additional settings in `.vscode/settings.json`
-
-- `editor.formatOnSave : true` to keep manual autoformatting to a minimum
-- `debug.javascript.usePreview : false` to address debugging issues from [microsoft/vscode#102834](https://github.com/microsoft/vscode/issues/102834). This should be removed eventually.
+If you have ideas on other data to include, feel free to submit a PR. There is a low barrier to entry for contributions; as long as you don't include massive dependencies or compromise determism then have at it.
