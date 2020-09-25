@@ -42,6 +42,6 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "seeded-random-utils": "^2.0.0"
+    "seeded-random-utils": "2.0.1"
   }
 }
