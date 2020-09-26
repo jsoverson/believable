@@ -54,4 +54,4 @@ console.log(believable.email());
 
 ## Contributions
 
-If you have ideas on other data to include, feel free to submit a PR. There is a low barrier to entry for contributions; as long as you don't include massive dependencies or compromise determism then have at it.
+If you have ideas on other data to include, feel free to submit a PR. There is a low barrier to entry for contributions; as long as you don't include massive dependencies or compromise determinism then have at it.
